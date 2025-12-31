@@ -7,7 +7,7 @@ import Image from "next/image";
 
 
 export default function Home() {
-  const [particleColor, setParticleColor] = useState('#FF6A00');
+  const [particleColor, setParticleColor] = useState('#6D6D6D');
 
   return (
     <div className="w-full h-[200vh]">
@@ -35,6 +35,34 @@ export default function Home() {
           animation: float 3s ease-in-out infinite;
           animation-delay: 1s;
         }
+
+        .flip-card {
+          perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.6s;
+          transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+          transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          -webkit-backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+          transform: rotateY(180deg);
+        }
       `}</style>
 
       <div className="fixed inset-0 -z-10 pointer-events-none">
@@ -58,16 +86,9 @@ export default function Home() {
       </div>
 
       <div className="min-h-screen relative">
-        {/* Bulbasaur Glow */}
-        <div 
-          className="absolute bottom-24 left-136 float opacity-0 hover:scale-110 hover:opacity-100 transition-transform duration-600"
-          onClick={() => setParticleColor('#00BA82')}
-        >
-          <img src="images/bulbasaur glow.png" alt="" className="w-64" />
-        </div>
 
         {/* Bulbasaur */}
-        <div 
+        <div
           className="absolute bottom-12 left-142 hover:scale-110 transition-transform duration-600 cursor-pointer float"
           onClick={() => setParticleColor('#00BA82')}
         >
@@ -75,15 +96,15 @@ export default function Home() {
         </div>
 
         {/* Squirtle */}
-        <div 
+        <div
           className="absolute top-48 right-196 hover:scale-110 transition-transform duration-600 cursor-pointer float float-delay-1"
           onClick={() => setParticleColor('#00EAFF')}
-        > 
+        >
           <img src="images/squirtle.svg" alt="" className="w-64" />
         </div>
-        
+
         {/* Charmander */}
-        <div 
+        <div
           className="absolute bottom-42 left-12 hover:scale-110 transition-transform duration-600 cursor-pointer float float-delay-2"
           onClick={() => setParticleColor('#F4CF00')}
         >
@@ -147,6 +168,167 @@ export default function Home() {
 
         </div>
       </div>
+      <div className="w-full flex flex-col items-center py-24 px-24">
+        <h1 className="text-white text-6xl pb-2 pt-12 font-medium">My Projects!</h1>
+        <p className="text-[#A0A0A0]">Here are projects that I made for the past two years</p>
+        <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+
+
+          <div className="flip-card w-full h-[380px]">
+            <div className="flip-card-inner h-full">
+
+              <div className="flip-card-front h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                >
+                  <div className="flex flex-col w-full h-full gap-1">
+                    <img className="rounded-xl h-full object-cover" src="images/desa-jatiguwi.png" alt="" />
+                    <p className="text-white text-2xl mt-4 font-semibold">Desa Jatiguwi</p>
+                  </div>
+                </GlassSurface>
+              </div>
+
+              <div className="flip-card-back h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                >
+                  <div className="flex flex-col justify-between h-full gap-4"> {/* Hapus h-full duplikat */}
+                    <div className="flex flex-col gap-4">
+                      <div className="flex gap-2 flex-wrap">
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                      </div>
+                      <p className="text-white text-justify">
+                        Desa jatiguwi merupakan sebuah website profil desa yang diperuntukan bagi pemerintah desa Jatiguwi, Sumberpucung, Malang. Website ini berisi informasi mengenai desa, yang dimana seluruh konten bisa dimodifikasi oleh pihak desa secara mandiri melalui fitur CMS yang telah disediakan.
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <img className="h-10" src="images/logo/js.svg" alt="" />
+                      <img className="h-10" src="images/logo/react.svg" alt="" />
+                      <img className="h-10" src="images/logo/next.svg" alt="" />
+                    </div>
+                  </div>
+                </GlassSurface>
+              </div>
+            </div>
+          </div>
+          <div className="flip-card w-full h-[380px]">
+            <div className="flip-card-inner h-full">
+
+              <div className="flip-card-front h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                  displace={5}
+                >
+                  <div className="flex flex-col w-full h-full gap-1">
+                    <img className="rounded-xl h-full object-cover" src="images/desa-jatiguwi.png" alt="" />
+                    <p className="text-white text-2xl mt-4 font-semibold">Desa Jatiguwi</p>
+                  </div>
+                </GlassSurface>
+              </div>
+
+              <div className="flip-card-back h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                  displace={5}
+                >
+                  <div className="flex flex-col justify-between h-full gap-4"> {/* Hapus h-full duplikat */}
+                    <div className="flex flex-col gap-4">
+                      <div className="flex gap-2 flex-wrap">
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                      </div>
+                      <p className="text-white text-justify">
+                        Desa jatiguwi merupakan sebuah website profil desa yang diperuntukan bagi pemerintah desa Jatiguwi, Sumberpucung, Malang. Website ini berisi informasi mengenai desa, yang dimana seluruh konten bisa dimodifikasi oleh pihak desa secara mandiri melalui fitur CMS yang telah disediakan.
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <img className="h-10" src="images/logo/js.svg" alt="" />
+                      <img className="h-10" src="images/logo/react.svg" alt="" />
+                      <img className="h-10" src="images/logo/next.svg" alt="" />
+                    </div>
+                  </div>
+                </GlassSurface>
+              </div>
+            </div>
+          </div>
+          <div className="flip-card w-full h-[380px]">
+            <div className="flip-card-inner h-full">
+
+              <div className="flip-card-front h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                  displace={5}
+                >
+                  <div className="flex flex-col w-full h-full gap-1">
+                    <img className="rounded-xl h-full object-cover" src="images/desa-jatiguwi.png" alt="" />
+                    <p className="text-white text-2xl mt-4 font-semibold">Desa Jatiguwi</p>
+                  </div>
+                </GlassSurface>
+              </div>
+
+              <div className="flip-card-back h-full">
+                <GlassSurface
+                  borderRadius={24}
+                  backgroundOpacity={0.15}
+                  className="p-6 w-full h-full"
+                  displace={5}
+                >
+                  <div className="flex flex-col justify-between h-full gap-4"> {/* Hapus h-full duplikat */}
+                    <div className="flex flex-col gap-4">
+                      <div className="flex gap-2 flex-wrap">
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                        <div className="flex items-center gap-2 rounded-full text-white hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3">
+                          <img src="images/logo/github.svg" className="w-6" alt="" />
+                          <p>DESA-JATIGUWI</p>
+                        </div>
+                      </div>
+                      <p className="text-white text-justify">
+                        Desa jatiguwi merupakan sebuah website profil desa yang diperuntukan bagi pemerintah desa Jatiguwi, Sumberpucung, Malang. Website ini berisi informasi mengenai desa, yang dimana seluruh konten bisa dimodifikasi oleh pihak desa secara mandiri melalui fitur CMS yang telah disediakan.
+                      </p>
+                    </div>
+                    <div className="flex gap-2">
+                      <img className="h-10" src="images/logo/js.svg" alt="" />
+                      <img className="h-10" src="images/logo/react.svg" alt="" />
+                      <img className="h-10" src="images/logo/next.svg" alt="" />
+                    </div>
+                  </div>
+                </GlassSurface>
+              </div>
+            </div>
+          </div>
+
+
+          
+
+        </div>
+      </div>
+
     </div>
   );
 }
