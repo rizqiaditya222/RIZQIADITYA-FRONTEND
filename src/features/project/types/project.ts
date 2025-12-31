@@ -7,6 +7,7 @@ export interface Project {
   _id: string
   photoUrl: string
   title: string
+  description: string
   githubRepos: GithubRepo[] | null
   deploymentUrl: string | null
   techStack: string[]
