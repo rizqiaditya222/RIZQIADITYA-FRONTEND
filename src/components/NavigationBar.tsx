@@ -1,10 +1,25 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { usePathname, useRouter } from 'next/navigation'
 import GlassSurface from "./glass-surface/GlassSurface";
 
 const NavigationBar = () => {
+  const pathname = usePathname()
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState('portfolio');
+
+  useEffect(() => {
+    if (!pathname) return
+    if (pathname.startsWith('/social')) setActiveTab('social')
+    else setActiveTab('portfolio')
+  }, [pathname])
+
+  const handleClick = (tab: string) => {
+    setActiveTab(tab)
+    if (tab === 'social') router.push('/social')
+    else router.push('/')
+  }
 
   return (
     <GlassSurface 
@@ -16,7 +31,7 @@ const NavigationBar = () => {
     >
       <div className="flex w-full h-full gap-1">
         <button
-          onClick={() => setActiveTab('portfolio')}
+          onClick={() => handleClick('portfolio')}
           className={`flex-1 h-full rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 ${
             activeTab === 'portfolio'
               ? 'bg-[#1C1C1C] text-white shadow-lg'
@@ -26,7 +41,7 @@ const NavigationBar = () => {
           Portofolio
         </button>
         <button
-          onClick={() => setActiveTab('social')}
+          onClick={() => handleClick('social')}
           className={`flex-1 h-full rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 ${
             activeTab === 'social'
               ? 'bg-[#1C1C1C] text-white shadow-lg'

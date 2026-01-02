@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ParticleColorProvider } from "@/contexts/ParticleColorContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" style={{ backgroundColor: '#000000', overflow: 'hidden' }}>
       <body
+        style={{ backgroundColor: '#000000', color: '#ffffff', overflow: 'hidden' }}
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ParticleColorProvider>
+          {children}
+        </ParticleColorProvider>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-type Tag = { icon?: string; label: string };
+type Tag = { icon?: string; label: string; url?: string };
 
 type FlipCardProps = {
   deploymentUrl?: string;
@@ -11,7 +11,7 @@ type FlipCardProps = {
   description?: string;
   techIcons?: string[];
   className?: string;
-  height?: string; // Tailwind height class or css value
+  height?: string;
 };
 
 export default function FlipCard({
@@ -29,8 +29,9 @@ export default function FlipCard({
   return (
     <div
       className={`flip-card w-full ${height} ${className}`}
+      
       style={{ perspective: 1000 }}
-      onClick={() => setFlipped((s) => !s)}
+      onClick={() => window.open(deploymentUrl, "_blank")}
       onMouseEnter={() => setFlipped(true)}
       onMouseLeave={() => setFlipped(false)}
       role="button"
@@ -99,7 +100,7 @@ export default function FlipCard({
                 <div
                   key={i}
                   className="flex items-center gap-2 rounded-full text-white hover:cursor-pointer hover:text-black hover:bg-white bg-[#1C1C1C] py-2 px-3"
-                onClick={() => window.open(deploymentUrl, "_blank")}>
+                  {...(t.url ? { onClick: () => window.open(t.url, "_blank") } : {})}>
                   {t.icon ? <img src={t.icon} className="w-6" alt="" /> : null}
                   <p>{t.label}</p>
                 </div>

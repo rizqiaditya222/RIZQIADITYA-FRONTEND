@@ -1,5 +1,5 @@
 'use client'
-import Antigravity from "@/features/component/Antigravity";
+import Antigravity from "@/components/Antigravity";
 
 export default function BackgroundAntigravity({ color }: { color: string }) {
   return (
