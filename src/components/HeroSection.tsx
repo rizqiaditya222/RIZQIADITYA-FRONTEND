@@ -66,7 +66,7 @@ export default function HeroSection({ particleColor, setParticleColor }: Props) 
                     <img
                       key={file}
                       src={`/images/logo/${file}`}
-                      className="h-6 md:h-8 tech-icon"
+                      className="h-6 w-6 md:h-8 md:w-8 tech-icon"
                       alt=""
                     />
                   ))}
