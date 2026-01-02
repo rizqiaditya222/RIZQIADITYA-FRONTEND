@@ -22,17 +22,28 @@ export default function Social() {
     const updateParticleCount = () => {
       const width = window.innerWidth
       if (width < 768) {
-        setParticleCount(75)
+        setParticleCount(50) // Reduced from 75 for better mobile performance
       } else if (width < 1280) {
-        setParticleCount(150)
+        setParticleCount(100) // Reduced from 150
       } else {
-        setParticleCount(200)
+        setParticleCount(150) // Reduced from 200
       }
     }
 
     updateParticleCount()
-    window.addEventListener('resize', updateParticleCount)
-    return () => window.removeEventListener('resize', updateParticleCount)
+    
+    // Debounce resize handler
+    let timeoutId: NodeJS.Timeout
+    const debouncedResize = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(updateParticleCount, 250)
+    }
+    
+    window.addEventListener('resize', debouncedResize)
+    return () => {
+      clearTimeout(timeoutId)
+      window.removeEventListener('resize', debouncedResize)
+    }
   }, [])
 
   return (

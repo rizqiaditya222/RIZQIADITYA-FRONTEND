@@ -68,7 +68,7 @@ export default function PokemonStory({ particleColor, setParticleColor }: Props)
         size="w-56"
         imageSrc="/images/pokemon/zubat.svg"
         altText="Charmander"
-        floatDelay="float-delay-2"
+        floatDelay="float-delay-1"
         particleColor={particleColor}
         onClick={() => setParticleColor('#547DF9')}
       />
@@ -88,7 +88,7 @@ export default function PokemonStory({ particleColor, setParticleColor }: Props)
         size="w-84"
         imageSrc="/images/pokemon/muk.svg"
         altText="Charmander"
-        floatDelay="float-delay-2"
+        floatDelay="float-delay-1"
         particleColor={particleColor}
         onClick={() => setParticleColor('#D400FF')}
       />
@@ -98,7 +98,7 @@ export default function PokemonStory({ particleColor, setParticleColor }: Props)
         size="w-56"
         imageSrc="/images/pokemon/chansey.svg"
         altText="Charmander"
-        floatDelay="float-delay-2"
+        floatDelay="float-delay"
         particleColor={particleColor}
         onClick={() => setParticleColor('#F954B9')}
       />

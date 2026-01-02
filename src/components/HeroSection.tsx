@@ -13,12 +13,17 @@ export default function HeroSection({ particleColor, setParticleColor }: Props) 
       <style>{`
         .tech-icon {
           transition: transform 0.2s ease, filter 0.2s ease;
-          will-change: transform, filter;
         }
 
         .tech-icon:hover {
           transform: scale(1.5);
           filter: drop-shadow(0 0 8px rgb(255,255,255));
+        }
+        
+        @media (max-width: 768px) {
+          .tech-icon:hover {
+            transform: scale(1.2);
+          }
         }
       `}</style>
 
