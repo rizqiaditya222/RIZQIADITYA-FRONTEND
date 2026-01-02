@@ -16,9 +16,6 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Rizqi Aditya - Portfolio",
   description: "Computer Science student passionate about Mobile and Web Development",
-  icons: {
-    icon: '/favico.png',
-  },
 };
 
 export default function RootLayout({
