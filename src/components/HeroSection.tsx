@@ -60,7 +60,7 @@ export default function HeroSection({ particleColor, setParticleColor }: Props) 
                 <div className="w-full grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-15 gap-2 justify-items-center">
                   {[
                     "HTML.svg", "CSS.svg", "TAILWIND.svg", "JAVASCRIPT.svg", "TYPESCRIPT.svg", "REACTJS.svg",
-                    "NEXTJS.svg", "KOTLIN.svg", "JETPACKCOMPOSE.svg", "DART.svg",
+                    "NEXTJS.svg", "KOTLIN2.svg", "JETPACKCOMPOSE.svg", "DART.svg",
                     "FLUTTER.svg", "GITHUB.svg", "DOCKER.svg", "MONGO.svg", "POSTGRES.svg",
                   ].map((file) => (
                     <img
