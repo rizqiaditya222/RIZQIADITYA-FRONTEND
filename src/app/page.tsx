@@ -44,9 +44,9 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="w-full h-screen overflow-y-scroll md:snap-y md:snap-mandatory">
+    <div className="w-full h-screen overflow-y-scroll snap-y snap-mandatory">
 
-      <div className="hidden md:block fixed inset-0 z-0 pointer-events-none">
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <Antigravity
           count={particleCount}
           magnetRadius={15}

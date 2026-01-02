@@ -96,7 +96,7 @@ const StorySection = ({ particleColor, setParticleColor, stories }: Props) => {
             </div>
 
 
-            <GlassSurface borderRadius={12} backgroundOpacity={0.15} className="p-3 md:p-4 z-30 pointer-events-none w-[90vw] max-w-[36vh]">
+            <GlassSurface borderRadius={12} backgroundOpacity={0.15} className="p-3 md:p-4 z-30 pointer-events-none w-[70vw] sm:w-[40vh] md:w-[36vh]">
                 <div className='w-full flex gap-2'>
                     <input 
                         className='flex-1 focus:outline-none focus:ring-0 border-0 pointer-events-auto bg-transparent text-white placeholder-white/50' 

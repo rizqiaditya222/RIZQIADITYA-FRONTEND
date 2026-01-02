@@ -34,7 +34,7 @@ export default function ProjectsSection({ projects, loading, error }: Props) {
               title={project.title}
               tags={
                 project.githubRepos?.map((repo: any) => ({
-                  icon: "/images/logo/github.svg",
+                  icon: "/images/logo/GITHUB.svg",
                   label: repo.repoName,
                   url: repo.repoUrl
                 })) || []
